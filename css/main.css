@@ -118,7 +118,7 @@ body {
 .main-container .game-bord {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 5%;
     width: 360px;
@@ -127,11 +127,9 @@ body {
     background-color: var(--board-color);
 }
 
-.main-container .game-bord {}
-
 .main-container .game-bord .game-block {
-    width: 30%;
-    height: 30%;
+    width: 80px;
+    height: 80px;
     position: relative;
     cursor: pointer;
 }
@@ -139,6 +137,7 @@ body {
 .main-container .game-bord .game-block.stop,
 .main-container .game-bord .game-block.chosed {
     pointer-events: none;
+
 }
 
 .main-container .game-bord .game-block.done {
@@ -159,12 +158,13 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: 0.1s;
+    transition: 0.3s;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    text-align: center;
+    line-height: 80px;
+
 }
 
 .main-container .game-bord .game-block .icon::selection {
