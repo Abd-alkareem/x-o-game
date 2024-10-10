@@ -152,6 +152,7 @@ body {
 }
 
 .main-container .game-bord .game-block .icon {
+    display: none;
     position: absolute;
     z-index: 10;
     top: 50%;
@@ -164,6 +165,7 @@ body {
     display: block;
     text-align: center;
     line-height: 80px;
+
 
 }
 
@@ -181,10 +183,12 @@ body {
 
 .main-container .game-bord .game-block:not(.stop):hover .active-icon,
 .main-container .game-bord .game-block:not(.chosed):hover .active-icon {
+    display: block;
     opacity: 1;
     font-size: 40px;
     z-index: 12;
-    color: black;
+    /* color: black; */
+
 }
 
 .main-container .game-bord .game-block .icon.chosed {
