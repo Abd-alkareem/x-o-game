@@ -84,8 +84,8 @@ function createBlocks(){
         block.addEventListener("click",(event)=>{
             //change the turn
             playerTurn = !playerTurn;
-            changeAc_Icon();
-            activeTurn();
+            // changeAc_Icon();
+            // activeTurn();
             // add chosed class to the 
             console.log(event)
             console.log(event.target)
