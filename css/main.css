@@ -154,12 +154,12 @@ body {
 
 .main-container .game-bord .game-block .icon {
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
-    transition: 0.3s;
+    transition: 0.1s;
     width: 100%;
     height: 100%;
     display: flex;
@@ -181,9 +181,9 @@ body {
 
 .main-container .game-bord .game-block:not(.stop):hover .active-icon,
 .main-container .game-bord .game-block:not(.chosed):hover .active-icon {
-    opacity: 7;
+    opacity: 1;
     font-size: 40px;
-    z-index: 2;
+    z-index: 12;
     color: black;
 }
 

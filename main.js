@@ -1,14 +1,23 @@
+// holder for the game
 const mainHolder = document.querySelector(".main-container");
 
 
 //data for the game
+    //which character player chose  
 let playerChose = "";
-let playerTurn = true;
+    //which character site chose  
 let siteChose = "";
+    //the lines that end the game
 const winLines = [[0,1,2],[0,3,6],[2,5,8],[6,7,8],[0,4,8],[2,4,6],[1,4,7],[3,4,5]];
+    //pointer to Determine the turn
+let playerTurn = true;
+    //pointer to know if the site played
 let sitePlayed = false;
+    //pointer to know if the game end
 let gameDone = false;
-// lay-out init
+
+
+// lay-out createing and appending
 let layOut = document.createElement("div");
 layOut.className = "layout";
 layOut.innerHTML = `
@@ -20,6 +29,7 @@ layOut.innerHTML = `
 `;
 mainHolder.appendChild(layOut);
 
+
 // start game function
 document.querySelectorAll(".start-btns i").forEach((btn)=>{
     btn.addEventListener("click",(event)=>{
@@ -27,6 +37,7 @@ document.querySelectorAll(".start-btns i").forEach((btn)=>{
         layOut.classList.add("remo");
         //get the player chose
         playerChose = event.target.getAttribute("player-type");
+        //get the site chose
         event.target.getAttribute("player-type") == 'x' ? siteChose = 'o': siteChose = 'x' ;
         // creating the game bord
         createBlocks();
@@ -76,6 +87,8 @@ function createBlocks(){
             changeAc_Icon();
             activeTurn();
             // add chosed class to the 
+            console.log(event)
+            console.log(event.target)
             event.target.classList.add("chosed");
             event.target.parentElement.classList.add("chosed");
             event.target.parentElement.classList.add(`${event.target.getAttribute("block-type")}`);
