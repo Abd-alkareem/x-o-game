@@ -1,0 +1,262 @@
+:root {
+    --main-blue: #257180;
+    --main-bagie: #F2E5BF;
+    --alt-bagie: #f2e5bfd2;
+    --main-orange: #FD8B51;
+    --alt-orange: #fd8a51ca;
+    --main-brown: #CB6040;
+    /*  */
+    --board-color: #FCFAEE;
+    --x-color: #384B70;
+    --o-color: #B8001F;
+    --alt-color: #507687;
+}
+
+/*  */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 100vh;
+    /*  */
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+*.remo {
+    /* opacity: 0 !important;
+    z-index: -1111111; */
+    display: none !important;
+}
+
+/*  */
+.main-container {
+    width: 500px;
+    height: 500px;
+    border: 2px solid #333;
+    padding: 70px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -250px;
+}
+
+/* start lay-out */
+.main-container .layout {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--alt-bagie);
+    z-index: initial;
+    opacity: 1;
+}
+
+.main-container .layout span {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    color: var(--main-orange);
+    text-transform: capitalize;
+    margin-top: 40%;
+    text-align: center;
+    font-weight: 600;
+}
+
+.main-container .layout div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+    position: relative;
+}
+
+.main-container .layout>div::before {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -1px;
+    background-color: var(--main-orange);
+    border-radius: 1px;
+}
+
+.main-container .layout i {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    cursor: pointer;
+    padding-bottom: 0;
+    transition: 0.3s;
+    color: #333;
+
+}
+
+.main-container .layout i:hover {
+    padding-bottom: 10px;
+    color: var(--main-blue);
+}
+
+/* end lay-out */
+
+/* start game-bord */
+.main-container .game-bord {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+    width: 360px;
+    height: 360px;
+    position: relative;
+    background-color: var(--board-color);
+}
+
+.main-container .game-bord {}
+
+.main-container .game-bord .game-block {
+    width: 30%;
+    height: 30%;
+    position: relative;
+    cursor: pointer;
+}
+
+.main-container .game-bord .game-block.stop,
+.main-container .game-bord .game-block.chosed {
+    pointer-events: none;
+}
+
+.main-container .game-bord .game-block.done {
+    opacity: 0.7;
+    background-color: #d4d4d4;
+    pointer-events: none;
+}
+
+.main-container .game-bord .game-block.win-block {
+    background-color: var(--main-bagie) !important;
+    opacity: 1;
+}
+
+.main-container .game-bord .game-block .icon {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.3s;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-container .game-bord .game-block .icon::selection {
+    background-color: transparent;
+}
+
+.main-container .game-bord .game-block .icon.x-icon {
+    color: var(--x-color);
+}
+
+.main-container .game-bord .game-block .icon.o-icon {
+    color: var(--o-color);
+}
+
+.main-container .game-bord .game-block:not(.stop):hover .active-icon,
+.main-container .game-bord .game-block:not(.chosed):hover .active-icon {
+    opacity: 7;
+    font-size: 40px;
+    z-index: 2;
+    color: black;
+}
+
+.main-container .game-bord .game-block .icon.chosed {
+    opacity: 1;
+    font-size: 60px;
+}
+
+.main-container .game-bord .stake {
+    display: block;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    border-radius: 2px;
+    background-color: #333;
+}
+
+.main-container .game-bord .stake.st-0 {
+    top: calc(32.5% - 1.5px);
+}
+
+.main-container .game-bord .stake.st-1 {
+    bottom: calc(32.5% - 1.5px);
+}
+
+.main-container .game-bord .stake.st-2 {
+    transform: rotate(90deg);
+    left: calc(17.25% + 1.5px);
+}
+
+.main-container .game-bord .stake.st-3 {
+    transform: rotate(90deg);
+    right: calc(17.25% + 1.5px)
+}
+
+/* end game-bord */
+
+/* start turn board */
+.main-container .turn-board {
+    padding-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.main-container .turn-board span {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    -webkit-box-shadow: 6px 6px 3px -1px rgb(51 51 51);
+    -moz-box-shadow: 6px 6px 3px -1px rgb(51 51 51);
+    box-shadow: 6px 6px 3px -1px rgb(51 51 51);
+    border: 2px solid #333;
+    color: #333;
+    font-size: 30px;
+}
+
+.main-container .turn-board span.turn-o.turn-on {
+    -webkit-box-shadow: 6px 6px 3px -1px var(--o-color);
+    -moz-box-shadow: 6px 6px 3px -1px var(--o-color);
+    box-shadow: 6px 6px 3px -1px var(--o-color);
+    border-color: var(--o-color);
+    color: var(--o-color);
+}
+
+.main-container .turn-board span.turn-x.turn-on {
+    -webkit-box-shadow: 6px 6px 3px -1px var(--x-color);
+    -moz-box-shadow: 6px 6px 3px -1px var(--x-color);
+    box-shadow: 6px 6px 3px -1px var(--x-color);
+    border-color: var(--x-color);
+    color: var(--x-color);
+}
+
+/* end turn board */
